@@ -170,7 +170,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
-        /*gifs de fondo*/
+        /*gif de fondo*/
         .goku-bg { background: url("../img/goku-gif.gif") no-repeat center center/cover; color: #fff;}
         .vegeta-bg { background: url("../img/vegeta-gif.gif") no-repeat center center/cover; color: #fff;}
         .gohan-bg {  background: url("../img/gohan-gif.gif") no-repeat center center/cover; color: #fff;}
