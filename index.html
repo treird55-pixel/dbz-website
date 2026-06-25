@@ -3,233 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preload" href="css/styles.css">
 
-    <title>Dragon Ball Fan Universe</title>
-    <style>
-        /* Base Reset & Colors */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --db-orange: #ff6600;
-            --db-blue: #0033cc;
-            --db-dark: #121214;
-            --db-light: #f4f4f9;
-            --db-gold: #ffcc00;
-        }
-
-        body {
-            background-color: var(--db-light);
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        header {
-            background-color: var(--db-dark);
-            border-bottom: 4px solid var(--db-orange);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            color: var(--db-orange);
-            font-size: 1.8rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .logo span {
-            color: var(--db-gold);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--db-orange);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(img/Goku-banner.jpg) no-repeat center center/cover;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            padding: 0 2rem;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 8px var(--db-orange);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            background-color: var(--db-orange);
-            color: #fff;
-            padding: 0.8rem 2rem;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            text-transform: uppercase;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .btn:hover {
-            background-color: #e05500;
-            transform: translateY(-2px);
-        }
-
-        /* Main Content Container */
-        .container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-            text-transform: uppercase;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--db-orange);
-            margin: 10px auto 0;
-        }
-
-        /* Character Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-img {
-            height: 250px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: #666;
-            font-weight: bold;
-            background-size: cover;
-            background-position: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-
-        /* Placeholder thematic gradients mimicking character energy */
-        .goku-bg { background: url("img/goku-gif.gif") no-repeat center center/cover; color: #fff;}
-        .vegeta-bg { background: url("img/vegeta-gif.gif") no-repeat center center/cover; color: #fff;}
-        .gohan-bg {  background: url("img/gohan-gif.gif") no-repeat center center/cover; color: #fff;}
-        .trunks-bg {  background: url("img/trunks-gif.gif") no-repeat center center/cover; color: #fff;}
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .card-content h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-            color: var(--db-dark);
-        }
-
-        .card-content p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--db-dark);
-            color: #aaa;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 5rem;
-            border-top: 4px solid var(--db-blue);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            nav ul li {
-                margin: 0 1rem;
-            }
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-        }
-    </style>
+    <title>Dragon Ball Fan Universe</title> 
 </head>
+
 <body>
 
-    <!-- Navigation Bar -->
+    <!-- Música de fondo oculta -->
+<audio autoplay loop id="bg-music">
+    <source src="audio/DbZ-soundtrack.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+</audio>
+
+    <!-- Barra de Navegacion-->
     <header>
         <div class="nav-container">
             <div class="logo">Dragon<span>Ball</span> Z</div>
@@ -237,25 +27,26 @@
                 <ul>
                     <li><a href="#home">Inicio</a></li>
                     <li><a href="#characters">Personajes</a></li>
+                    <li><a href="#villains">VIllanos</a></li>
                     <li><a href="#sagas">Sagas</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Banner -->
+    <!--Banner-->
     <section class="hero" id="home">
         <h1>¡Encuentra tu Saiyan interior!</h1>
         <p>Explora la historia, las transformaciones, y las Legendarias batallas de los Guerreros más grandiosos del Universo.</p>
         <a href="#characters" class="btn">Explora los Heroes</a>
     </section>
 
-    <!-- Main Content Area -->
+    <!--Contenido princiapal-->
     <main class="container">
         <h2 class="section-title" id="characters">Legendarios Guerreros-Z</h2>
         
         <div class="grid">
-            <!-- Character 1 -->
+            <!--Personaje 1-->
             <div class="card">
                 <div class="card-img goku-bg">SON GOKU</div>
                 <div class="card-content">
@@ -265,7 +56,7 @@
                 </div>
             </div>
 
-            <!-- Character 2 -->
+            <!--Perosnaje 2-->
             <div class="card">
                 <div class="card-img vegeta-bg">PRINCIPE VEGETA</div>
                 <div class="card-content">
@@ -275,7 +66,7 @@
                 </div>
             </div>
 
-            <!-- Character 3 -->
+            <!-- Personaje 3 -->
             <div class="card">
                 <div class="card-img gohan-bg">SON GOHAN</div>
                 <div class="card-content">
@@ -285,21 +76,177 @@
                 </div>
             </div>
 
-            <!-- Character 4 -->
+            <!-- Persnaje 4 -->
             <div class="card">
                 <div class="card-img trunks-bg">TRUNKS</div>
                 <div class="card-content">
                     <h3>Trunks del Futuro</h3>
-                    <p>El hijo de Vegeta. Con una alma gentil y su deseo de ser un investigador, su latente poder oculto lo convierte en una
-                    fuerza imparable cuando es provocado.</p>
+                    <p>El hijo de Vegeta, proveniente de un futuro devastado, viaja en el tiempo para cambiar la historia.
+                    Este espadachín mitad saiyan lucha con absoluta seriedad para proteger ambas líneas temporales.</p>
                 </div>
-        </div>
+            </div>
+
+            <!-- Perosnaje 5 -->
+            <div class="card">
+                <div class="card-img piccolo-bg">PICCOLO</div>
+                <div class="card-content">
+                    <h3>Piccolo</h3>
+                    <p>Un guerrero namekiano que en su día fue el enemigo más letal de Goku. Con el tiempo, se convirtió en un sabio mentor
+                    para Gohan y en uno de los protectores más fiables y estratégicos de la Tierra.</p>
+                </div>
+            </div>
+
+            <!-- Personaje 6 -->
+            <div class="card">
+                <div class="card-img krillin-bg">KRILLIN</div>
+                <div class="card-content">
+                    <h3>Krillin</h3>
+                    <p>El mejor amigo de Goku desde sus entrenamientos en su infancia juntos. A pesar de ser humano entre guerreros divinos,
+                    su valentía inigualable y sus ingeniosas técnicas lo convierten en el humano más fuerte de la Tierra.</p>
+                </div>
+            </div>
     </main>
+
+
+    <!-- Sección de Enemigos Principales-->
+    <section class="container" id="villains">
+        <h2 class="section-title text-villains">Enemigos Principales</h2>
+        
+        <div class="grid">
+            <!-- Enemigo 1 -->
+            <div class="card card-villain">
+                <div class="card-img freezer-bg">FREEZER</div>
+                <div class="card-content content-villain">
+                    <h3>Freezer</h3>
+                    <p>El despiadado tirano del universo. Responsable de la destrucción del Planeta Vegeta y el enemigo más cruel al que 
+                    se han enfrentado los Saiyans.</p>
+                </div>
+            </div>
+
+            <!-- Enemigo 2 -->
+            <div class="card card-villain">
+                <div class="card-img cell-bg">CELL</div>
+                <div class="card-content content-villain">
+                    <h3>Cell</h3>
+                    <p>La creación definitiva del Dr. Gero. Un bio-androide perfecto que posee las células y habilidades de los guerreros
+                    más poderosos del universo.</p>
+                </div>
+            </div>
+
+            <!-- Enemigo 3 -->
+            <div class="card card-villain">
+                <div class="card-img buu-bg">MAJIN BUU</div>
+                <div class="card-content content-villain">
+                    <h3>Majin Buu</h3>
+                    <p>Una fuerza de destrucción masiva ancestral. Despertado por magia prohibida, este ser caótico cambia de forma y
+                    absorbe a sus rivales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sección de Sagas con Video-->
+    <section class="container" id="sagas">
+        <h2 class="section-title">Sagas Legendarias</h2>
+        
+        <div class="sagas-container">
+            <!-- Saga 1 -->
+            <div class="saga-card">
+                <div class="saga-info">
+                    <span class="saga-number">01</span>
+                    <h3>Saga Saiyan</h3>
+                    <p>Goku descubre sus orígenes extraterrestres y se enfrenta junto a los Guerreros-Z a la letal invasión de Nappa y el Príncipe Vegeta.</p>
+                </div>
+                <div class="saga-video">
+                     <video controls preload="metadata">
+                        <source src="video/Goku Deja Escapar A Vegeta.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+            </div>
+
+            <!-- Saga 2 -->
+            <div class="saga-card">
+                <div class="saga-info">
+                    <span class="saga-number">02</span>
+                    <h3>Saga de Freezer</h3>
+                    <p>La búsqueda de las Esferas del Dragón originales desata una guerra contra el tirano del universo, despertando al Legendario Super Saiyan.</p>
+                </div>
+                <div class="saga-video">
+                    <video controls preload="metadata">
+                        <source src="video/La derrota de Freezer.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+            </div>
+
+            <!-- Saga 3 -->
+            <div class="saga-card">
+                <div class="saga-info">
+                    <span class="saga-number">03</span>
+                    <h3>Saga de los Androides</h3>
+                    <p>Goku descubre sus orígenes extraterrestres y se enfrenta junto a los Guerreros-Z a la letal invasión de Nappa y el Príncipe Vegeta.</p>
+                </div>
+                <div class="saga-video">
+                    <video controls preload="metadata">
+                        <source src="video/GOHAN DERROTA A CELL [LATINO] [HD].mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+            </div>
+
+            <!-- Saga 4 -->
+            <div class="saga-card">
+                <div class="saga-info">
+                    <span class="saga-number">04</span>
+                    <h3>Saga de Buu</h3>
+                    <p>Goku descubre sus orígenes extraterrestres y se enfrenta junto a los Guerreros-Z a la letal invasión de Nappa y el Príncipe Vegeta.</p>
+                </div>
+                <div class="saga-video">
+                    <video controls preload="metadata">
+                        <source src="video/Goku mata a Majin Boo - ÉPICO.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy 2026 Dragon Ball Fan page. Creado por Desmond C. Hueza.</p>
+        <div style="margin-bottom: 2rem; border-bottom: 1px solid #333; padding-bottom: 1.5rem;">
+            <p style="color: var(--db-gold); font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">
+                ¡Invoca a Shenlong!
+            </p>
+            <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 1rem;">
+                ¡Haz clic en las esferas para reunir las 7 y pedir tu deseo!
+            </p>
+            <div id="esferas-container" style="display: flex; justify-content: center; gap: 1rem; font-size: 2.2rem; cursor: pointer; user-select: none;">
+                <span onclick="activarEsfera(this)">🟠</span>
+                <span onclick="activarEsfera(this)">🟠</span>
+                <span onclick="activarEsfera(this)">🟠</span>
+                <span onclick="activarEsfera(this)">🟠</span>
+                <span onclick="activarEsfera(this)">🟠</span>
+                <span onclick="activarEsfera(this)">🟠</span>
+                <span onclick="activarEsfera(this)">🟠</span>
+            </div>
+        </div>
+        
+        <p>&copy; 2026 Dragon Ball Fanpage, creado por Wonderz!.</p>
     </footer>
+
+    
+<!-- musiquita-->
+<script>
+    window.addEventListener('click', () => {
+        const musica = document.getElementById('bg-music');
+        if (musica.paused) {
+            musica.play().catch(error => console.log("Reproducción automática bloqueada inicialmente:", error));
+        }
+    }, { once: true }); // El evento solo se ejecuta una vez
+</script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
