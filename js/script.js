@@ -16,3 +16,27 @@ function activarEsfera(elemento) {
         }
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const musicaFondo = document.getElementById("bg-music");
+
+    const listaVideos = document.querySelectorAll('video');
+
+    if (musicaFondo) {
+        
+        listaVideos.forEach(video => {
+            
+            video.addEventListener('play', () => {
+
+                musicaFondo.pause();
+            });
+
+            video.addEventListener('pause', () => {
+                musicaFondo.play();
+            });
+            
+        });
+    }
+});
